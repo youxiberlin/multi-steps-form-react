@@ -4,8 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-To test the application, first please clone this repo by typing:
-$ git clone 
+To test the application, first please clone this repo by typing:  
+$ git clone  
 or download this repo.
 
 In the project directory, you can run:
