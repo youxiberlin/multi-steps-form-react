@@ -58,3 +58,33 @@ li{
   color: rgb(47, 58, 82);
   text-align: center;  
 }
+
+.step-counter{
+  font-size: 0.9rem;
+  color: rgb(47, 58, 82);
+}
+
+.error-msg{
+  font-size: 0.9rem;
+  color: rgb(47, 58, 82);
+}
+
+.btn {
+  font-size: 2rem;
+  background: transparent;
+  border: none;
+  width: 2em;
+  color: rgba(47, 58, 82, 0.9);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+ } 
+
+.form-check-input{
+  width: 20px;
+}

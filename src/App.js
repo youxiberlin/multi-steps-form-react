@@ -30,7 +30,7 @@ class App extends Component {
     this.emailChange = this.emailChange.bind(this);
     this.phoneChange = this.phoneChange.bind(this);
     this.salaryChange = this.salaryChange.bind(this);
-
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   nameChange(event) {
@@ -43,7 +43,6 @@ class App extends Component {
     this.setState({ phone: event.target.value });
   }
   salaryChange(event) {
-    console.log(event.target)
     this.setState({
       salary: event.target.checked,
       salaryValue: event.target.value
@@ -51,10 +50,11 @@ class App extends Component {
   }
 
   render() {
-    console.log("salary", this.state.salaryValue)
-    const step = this.state.step
+    const step = this.state.step;
     let form;
 
+
+    // getting a section based on the current step
     if (step === 1) form = <Name value={this.state.name} onChange={this.nameChange} />;
     else if (step === 2) form = <Email value={this.state.email} onChange={this.emailChange} />;
     else if (step === 3) form = <Phone value={this.state.phone} onChange={this.phoneChange} />;
@@ -62,27 +62,34 @@ class App extends Component {
     else if (step === 5) form = <Summary name={this.state.name} email={this.state.email} phone={this.state.phone} salary={this.state.salaryValue} />;
     else if (step === 6) form = <Thanks />;
 
+
+    // previous / next buttons
     let prev;
     if (step === 1 || step === 6) prev = "";
-    else prev = <button onClick={this.prev}>Prev</button>;
+    else prev = <button className="btn" onClick={this.prev}>{String.fromCharCode(8592)}</button>;
 
     let next;
     if (step === 6) next = "";
-    else if (step === 5) next = <button onClick={this.validate}>Submit</button>;
-    else next = <button onClick={this.validate}>Next</button>;
+    else if (step === 5) next = <button className="btn" onClick={this.validate}>Submit</button>;
+    else next = <button className="btn" onClick={this.validate}>{String.fromCharCode(8594)}</button>;
 
-
+    // step counter
+    let stepCounter = "";
+    if (step < 6) stepCounter = <p className="step-counter">{this.state.step} / 6</p>;
 
     return (
       <div>
         <Indicator step={this.state.step} />
         <div className="wrapper">
-          <form id="form" action="">
+          <form id="form" action="" onSubmit={e => e.preventDefault()} onKeyPress={this.handleKeyPress}>
             {form}
           </form>
-          {prev}
-          {next}
-          <p>{this.state.errorMsg}</p>
+          <div className="text-center">
+            {prev}
+            {next}
+            <p className="error-msg">{this.state.errorMsg}</p>
+            {stepCounter}
+          </div>
         </div>
       </div>
     )
@@ -151,12 +158,21 @@ class App extends Component {
     })
   }
 
+  handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      this.validate();
+    }
+  }
+
   validateName() {
-    return this.state.name ? true : false;
+    const splittedName = this.state.name.split(" ")
+    if (splittedName.length === 0 || splittedName.length === 1 || splittedName[1] === "") return false;
+    else return true;
   }
 
   validateEmail() {
-    return this.state.email ? true : false;
+    if (this.state.email.includes("@")) return true;
+    else return false;
   }
 
   validatePhone() {
