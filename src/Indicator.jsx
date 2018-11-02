@@ -15,8 +15,8 @@ class Indicator extends Component {
 
     const indicatorStyle = {
       width: number + "%",
-      height: "5vh",
-      backgroundColor: "blue"
+      height: "3vh",
+      background: "rgb(169, 180, 204)"
     }
 
     return (

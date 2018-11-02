@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans|Rubik');
+
+
 body {
-  background-color: #eee;
+  background-color: rgba(169, 180, 204, .5);
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Rubik', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -14,5 +15,46 @@ code {
     monospace;
 }
 
+.wrapper {
+  display: block;
+  margin: 15vh auto 0;
+  width: 80vw;
+}
 
+h3 {
+  color: rgba(47, 58, 82, 0.9);
+  font-size: 1.7rem;
+}
 
+input {
+  margin: 0.3em 0 0 0;
+  padding: 1em;
+  line-height: 1;
+  font-size: 1rem;
+  border: none;
+  background: rgba(124, 119, 119, 0.2);
+  display: block;
+  width: 100%;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #eee inset;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li{
+  font-size: 1.3rem;
+  color: rgb(47, 58, 82);
+  line-height: 2;
+}
+
+.thanks-msg {
+  font-size: 1.3rem;
+  color: rgb(47, 58, 82);
+  text-align: center;  
+}
