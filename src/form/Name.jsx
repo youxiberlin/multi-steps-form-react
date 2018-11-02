@@ -8,8 +8,6 @@ const Name = props => {
         <h3>What's your full name?</h3>
       </label>
       <input type="text" placeholder="Name" value={props.value} onChange={props.onChange} />
-      {/* <input id="name" type="text" placeholder="Name"
-      ></input> */}
     </div>
   );
 };
